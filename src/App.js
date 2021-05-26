@@ -54,6 +54,14 @@ class App extends React.Component {
         total_expense: this.state.total_expense - amount,
         total_balance: this.state.total_balance - amount,
       });
+    } else if (Number.isInteger(parseInt(this.state.temp_amount[0]))) {
+      var amount1 = parseInt(this.state.temp_amount);
+      this.setState({
+        total_income: this.state.total_income + amount1,
+        total_balance: this.state.total_balance + amount1,
+      });
+    } else {
+      alert("wrong input");
     }
   };
   delete = (index, e) => {
