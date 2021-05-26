@@ -74,6 +74,18 @@ class App extends React.Component {
   delete = (index, e) => {
     const t1 = Object.assign([], this.state.transactions);
     //console.log(index.target.value);
+    var temp = t1[index.target.value];
+    if (temp.amount >= 0) {
+      this.setState({
+        total_balance: this.state.total_balance - temp.amount,
+        total_income: this.state.total_income - temp.amount,
+      });
+    } else if (temp.amount < 0) {
+      this.setState({
+        total_balance: this.state.total_balance - temp.amount,
+        total_expense: this.state.total_expense - temp.amount,
+      });
+    }
     t1.splice(index.target.value, 1);
     this.setState({
       transactions: t1,
