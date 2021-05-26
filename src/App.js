@@ -36,7 +36,7 @@ class App extends React.Component {
       id: uuid4(),
       text: this.state.temp_text,
       amount: this.state.temp_amount,
-      date: String(this.state.temp_date),
+      date: this.state.temp_date,
     };
     this.setState({
       transactions: [...transactions, temp_trans],
