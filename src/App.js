@@ -86,7 +86,7 @@ class App extends React.Component {
         <h1>Expense Tracker(using Tracker)</h1>
         <h2>Your balance is : &#8377; {this.state.total_balance}</h2>
         <p>
-          Income : +&#8377; {this.state.total_income} Expense : -&#8377;
+          Income : &#8377; +{this.state.total_income} Expense : &#8377;
           {this.state.total_expense}
         </p>
         <h3>History</h3>
