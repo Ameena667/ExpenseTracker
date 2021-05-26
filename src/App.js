@@ -32,15 +32,18 @@ class App extends React.Component {
   };
   add = (index) => {
     const transactions = Object.assign([], this.state.transactions);
+    /*if (Number.isInteger(parseInt(this.state.temp_amount[0]))) {
+      var temp = this.state.temp_amount;
+      this.setState({ temp_amount: "+" + temp });
+      console.log(this.state.temp_amount);
+    }*/
     const temp_trans = {
       id: uuid4(),
       text: this.state.temp_text,
       amount: this.state.temp_amount,
       date: this.state.temp_date,
     };
-    this.setState({
-      transactions: [...transactions, temp_trans],
-    });
+
     //console.log(this.state.temp_amount[0]);
     //console.log(typeof parseInt(this.state.temp_amount.slice(1)));
     var amount = parseInt(this.state.temp_amount.slice(1));
@@ -60,9 +63,13 @@ class App extends React.Component {
         total_income: this.state.total_income + amount1,
         total_balance: this.state.total_balance + amount1,
       });
+      temp_trans.amount = "+" + this.state.temp_amount;
     } else {
       alert("wrong input");
     }
+    this.setState({
+      transactions: [...transactions, temp_trans],
+    });
   };
   delete = (index, e) => {
     const t1 = Object.assign([], this.state.transactions);
